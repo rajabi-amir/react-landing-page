@@ -54,16 +54,16 @@ export default function NavMenu() {
             </Tabs>
           </Box>
           <Box>
-            <Button variant="text" sx={{ borderRadius: "8px" }}>
+            <Button variant="text" size="small" sx={{ borderRadius: "8px" }}>
               ورود
             </Button>
-            <Button variant="contained">ثبت نام</Button>
+            <Button variant="contained" size="small">ثبت نام</Button>
           </Box>
           <Box display={{ md: "none" }}>
             <IconButton aria-label="menu" onClick={toggleDrawer(true)}>
               <Menu
                 color="action"
-                fontSize="large"
+                fontSize="medium"
                 sx={{ verticalAlign: "middle" }}
               />
             </IconButton>
