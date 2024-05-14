@@ -1,13 +1,33 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+// import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import rtlPlugin from 'stylis-plugin-rtl';
+import { prefixer } from 'stylis';
+import { CacheProvider } from '@emotion/react';
+import createCache from '@emotion/cache';
+import LandingPage from './LandingPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+const cacheRtl = createCache({
+  key: 'muirtl',
+  stylisPlugins: [prefixer, rtlPlugin],
+});
+const theme = createTheme({
+  typography: {
+    fontFamily: ['Vazirmatn']
+  },
+  direction: 'rtl',
+});
 root.render(
   <React.StrictMode>
-    <App />
+    <CacheProvider value={cacheRtl}>
+      <ThemeProvider theme={theme}>
+        <LandingPage />
+      </ThemeProvider>
+    </CacheProvider>
   </React.StrictMode>
 );
 
